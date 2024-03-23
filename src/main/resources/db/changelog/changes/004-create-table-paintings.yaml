@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-create-table-paintings
+      author: AGozhan
+      changes:
+        - createTable:
+            tableName: paintings
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(45)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: artist_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_painting_artist
+                    referencedTableName: artists
+                    referencedColumnNames: id
+              - column:
+                  name: museum_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_painting_museums
+                    referencedTableName: museums
+                    referencedColumnNames: id
+              - column:
+                  name: year
+                  type: int

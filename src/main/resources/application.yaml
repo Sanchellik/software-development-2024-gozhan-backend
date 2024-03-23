@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: software-development-2024
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: 'jdbc:postgresql://localhost:5432/software_development_2024?prepareThreshold=0'
+    username: 'postgres'
+    password: 'postgres'
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
